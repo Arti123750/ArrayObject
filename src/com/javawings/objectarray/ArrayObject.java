@@ -1,53 +1,52 @@
 package com.javawings.objectarray;
- 
-class Teacher 
-{
-int id;
-String TeachName;
-public Teacher(int id, String TeachName) {
-	System.out.println("Teacher id: "+id+" Teacher Name: "+TeachName);
-	System.out.println();
-}
-}
 
-class Student
-{
-int rollNo;
-String studName;
-Student(int rollNo,String studName )
-{
-	this.rollNo=rollNo;
-	this.studName=studName;
-	System.out.println("Student Roll no: "+ rollNo+" studName: "+studName);	
-	}
-@Override
-public String toString() {
-	return "Student [rollNo=" + rollNo + ", studName=" + studName + "]";
-}
-}
 public class ArrayObject {
 
 	public static void main(String[] args) {
-		Teacher [] t1=new Teacher[3];
 		
-		t1[0]=new Teacher(101,"Mr.Sharma");
-		t1[1]=new Teacher(102,"Mr.Kulkarni");
-		t1[2]=new Teacher(103,"Mr.Patil");
+		Student s1 = new Student(12, "John Bosco");
+		Student s2 = new Student(13, "Michel");
 		
-		Student [] s1=new Student[2];
-		s1[0]=new Student(10,"Arti");
-		s1[1]=new Student(20,"Pooja");
+		Teacher t1 = new Teacher(23, "Jenelia");
+		Teacher t2 = new Teacher(24, "Jelly ket");
 		
-		Object obj[] = {t1,s1};//Object Array
-		System.out.println("show only Student Data");
+		Object[] obArray = {s1, s2, t1, t2};
+		System.out.println("Show only student data");
 		
-	if(obj instanceof Student[])
-	{
-		for (Object obj1 : obj) {
+		for (Object object123 : obArray) {
 			
-			System.out.println(obj);
-			
+			if(object123 instanceof Student)
+			//if(object123.getClass().getName()== "com.javawings.objectarray.Student") {
+				
+				 System.out.println(object123);
+			 }
 		}
+		
 	}
+	class Student{
+	int id;
+	String name;
+	public Student(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
 	}
+	@Override
+	public String toString() {
+		return id +"  "+  name ;
+	}
+	
+	
+	
+}
+class Teacher{
+	
+	int teacher_id;
+	String name;
+	public Teacher(int teacher_id, String name) {
+		super();
+		this.teacher_id = teacher_id;
+		this.name = name;
+	}
+
 }
